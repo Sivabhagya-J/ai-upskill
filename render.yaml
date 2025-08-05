@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: project-management-backend
+    env: python
+    plan: free
+    buildCommand: cd backend && pip install -r requirements.txt
+    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: SECRET_KEY
+        value: your_super_secret_key_here_make_it_long_and_random
+      - key: ENVIRONMENT
+        value: production
+      - key: DEBUG
+        value: false
+      - key: API_V1_STR
+        value: /api/v1
+      - key: PROJECT_NAME
+        value: Project Management Dashboard
+      - key: VERSION
+        value: 1.0.0
+
+  - type: web
+    name: project-management-frontend
+    env: static
+    plan: free
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishPath: ./frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://project-management-backend.onrender.com/api/v1
+
+databases:
+  - name: project-management-db
+    databaseName: project_management
+    user: project_management_user 
