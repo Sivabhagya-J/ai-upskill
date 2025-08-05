@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Project Management Dashboard
 
 A full-stack project management application built with React frontend and Python FastAPI backend, following SOLID principles and design patterns.
@@ -364,6 +363,3 @@ npm test
 ## 📄 License
 
 MIT License - see LICENSE file for details 
-=======
-# ai-upskill
->>>>>>> 2eed034b13e78ac2d956bc504f23dbc606fcfbfe
